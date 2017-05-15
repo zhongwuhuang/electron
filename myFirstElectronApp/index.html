@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+  </head>
+  <body>
+    <h1>Hello World!</h1>
+    <p>
+      好了,第一个桌面程序
+    </p>
+    <p>
+      ctrl+x退出,ctrl+d显示该程序目录
+    </p>
+    <p>
+      f12调出开发者工具
+    </p>
+    <p>
+      f5重载页面
+    </p>
+    <button type="button" name="button">字体变绿</button>
+    <button type="button" name="button">恢复</button>
+  </body>
+
+  <script type="text/javascript">
+    var electron = require('electron');
+    var ipcRenderer = electron.ipcRenderer;
+    var settingEl1 = document.querySelectorAll('button')[0];
+    var settingEl2 = document.querySelectorAll('button')[1];
+
+    settingEl1.addEventListener('click',function(){
+       ipcRenderer.send('add-css');//向主进程main.js发送请求
+    });
+    settingEl2.addEventListener('click',function(){
+       ipcRenderer.send('delete-css');//向主进程main.js发送请求
+    });
+  </script>
+
+</html>

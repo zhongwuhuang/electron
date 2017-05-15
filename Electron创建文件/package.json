@@ -1,0 +1,13 @@
+{
+  "name": "createNewFile",
+  "version": "1.0.0",
+  "main": "app.js",
+  "devDependencies": {
+    "electron-packager": "^8.5.1",
+    "electron-prebuilt": "^1.4.13"
+  },
+  "scripts": {
+    "start":"electron .",
+    "packager":"electron-packager ~/Desktop/electron-learning/Electron创建文件 创建文件 --linux --out ./OutApp --version 1.4.13 --overwrite"
+  }
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>zqz_electron</title>
+    <meta charset="utf-8">
+</head>
+<script type="text/javascript">
+
+    const remote = require('electron').remote;
+    const Menu = remote.Menu;
+    const MenuItem = remote.MenuItem;
+
+    var menu = new Menu();
+    menu.append(new MenuItem({ label: 'MenuItem1', click: function() { alert('你点击我了'); } }));
+    menu.append(new MenuItem({ sublabel: 'MenuItem2',visible:true }));
+    menu.append(new MenuItem({ type: 'separator' }));
+    menu.append(new MenuItem({ label: 'MenuItem3', type: 'checkbox', checked: true }));
+    menu.append(new MenuItem({ label: 'MenuItem4', type: 'radio', checked: true }));
+    menu.append(new MenuItem({ label: '最小化', role: 'minimize'}));
+    menu.append(new MenuItem({ label: '关闭', role: 'close'}));
+    menu.append(new MenuItem({ label: '剪切', role: 'cut'}));
+    menu.append(new MenuItem({ label: '全选', role: 'selectall'}));
+    menu.append(new MenuItem({ label: '复制', role: 'copy'}));
+    menu.append(new MenuItem({ label: '粘贴', role: 'paste'}));
+    // menu.append(new MenuItem({ label: '粘贴', role: 'undo'}));
+    // menu.append(new MenuItem({ label: '粘贴', role: 'redo'}));
+
+    window.addEventListener('contextmenu', function (e) {
+      e.preventDefault();
+      menu.popup(remote.getCurrentWindow());
+    }, false);
+
+</script>
+<body>
+
+<input type="file"></input>
+<textarea name="name" rows="8" cols="40"></textarea>
+
+</body>
+</html>
